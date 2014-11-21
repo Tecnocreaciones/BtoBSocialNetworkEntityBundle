@@ -111,6 +111,13 @@ class Message
     private $time;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createdAt", type="datetime", nullable=false)
+     */
+    private $createdAt;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="public", type="integer", nullable=false)
@@ -482,5 +489,62 @@ class Message
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @ORM\PrePersist()
+     * @return Message
+     */
+    public function setCreatedAt()
+    {
+        $this->createdAt = new \DateTime();
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Add resourcesCDN
+     *
+     * @param \BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN $resourcesCDN
+     * @return Message
+     */
+    public function addResourcesCDN(\BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN $resourcesCDN)
+    {
+        $this->resourcesCDN[] = $resourcesCDN;
+
+        return $this;
+    }
+
+    /**
+     * Remove resourcesCDN
+     *
+     * @param \BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN $resourcesCDN
+     */
+    public function removeResourcesCDN(\BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN $resourcesCDN)
+    {
+        $this->resourcesCDN->removeElement($resourcesCDN);
+    }
+
+    /**
+     * Get resourcesCDN
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getResourcesCDN()
+    {
+        return $this->resourcesCDN;
     }
 }

@@ -16,5 +16,8 @@
     "autoload": {
         "psr-0": { "BtoB\\SocialNetwork\\EntityBundle": "" }
     },
-    "target-dir": "BtoB/SocialNetwork/EntityBundle"
+    "target-dir": "BtoB/SocialNetwork/EntityBundle",
+    "config": {
+        "bin-dir": "bin"
+    }
 }
