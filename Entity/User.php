@@ -1394,4 +1394,15 @@ class User extends BaseUser
     {
         $this->date = new \DateTime();
     }
+    
+    public function __toString() {
+        $firstNameLen = strlen($this->getFirstName());
+        $fullname = '';
+        if($firstNameLen > 0){
+            $fullname = $this->getFirstName().' '. $this->getLastName();
+        }else{
+            $fullname = $this->username;
+        }
+        return $fullname;
+    }
 }
