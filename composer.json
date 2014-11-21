@@ -1,0 +1,20 @@
+{
+    "name": "tecnocreaciones/btob-social-network-entity-bundle",
+    "description": "Definicion de entidades de la aplicacion.",
+    "type": "symfony-bundle",
+    "require": {
+        "doctrine/orm": "~2.2,>=2.2.3"
+    },
+    "license": "Private",
+    "authors": [
+        {
+            "name": "Carlos Mendoza",
+            "email": "inhack20@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": { "BtoB\\SocialNetwork\\EntityBundle": "" }
+    },
+    "target-dir": "BtoB/SocialNetwork/EntityBundle"
+}
