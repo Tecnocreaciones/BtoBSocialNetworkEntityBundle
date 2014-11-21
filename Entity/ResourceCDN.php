@@ -47,7 +47,7 @@ class ResourceCDN extends Base
      * @var array
      * @ORM\Column(name="data",type="array")
      */
-    private $data;
+    protected $data;
     
     /**
      * Tipo de CDN

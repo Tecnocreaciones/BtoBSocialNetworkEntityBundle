@@ -1386,4 +1386,12 @@ class User extends BaseUser
     {
         return $this->referredBy;
     }
+    
+    /**
+     * @ORM\PrePersist()
+     */
+    public function prePersist()
+    {
+        $this->date = new \DateTime();
+    }
 }

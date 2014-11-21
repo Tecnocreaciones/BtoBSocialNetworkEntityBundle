@@ -19,4 +19,10 @@ namespace BtoB\SocialNetwork\EntityBundle\Model;
 abstract class ResourceCDN
 {
     const TYPE_CLOUDINARY = 'cloudinary';
+    
+    protected $data;
+            
+    function getUrl() {
+        return $this->data['url'];
+    }
 }
