@@ -1386,4 +1386,15 @@ class User extends BaseUser
     {
         return $this->referredBy;
     }
+    
+    public function __toString() {
+        $firstNameLen = strlen($this->getFirstName());
+        $fullname = '';
+        if($firstNameLen > 0){
+            $fullname = $this->getFirstName().' '. $this->getLastName();
+        }else{
+            $fullname = $this->username;
+        }
+        return $fullname;
+    }
 }
