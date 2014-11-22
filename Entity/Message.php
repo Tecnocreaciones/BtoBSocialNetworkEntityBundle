@@ -158,7 +158,7 @@ class Message
      * Recursos en CDN
      * 
      * @var \BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN
-     * @ORM\ManyToMany(targetEntity="BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN",inversedBy="messages",cascade={"remove"})
+     * @ORM\ManyToMany(targetEntity="BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN",inversedBy="messages",cascade={"persist","remove"})
      */
     private $resourcesCDN;
     /**

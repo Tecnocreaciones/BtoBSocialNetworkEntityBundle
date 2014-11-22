@@ -329,6 +329,22 @@ class User extends BaseUser
      * @ORM\ManyToOne(targetEntity="BtoB\SocialNetwork\EntityBundle\Entity\User")
      */
     protected $referredBy;
+    
+    /**
+     * Recursos en CDN del Perfil
+     * 
+     * @var \BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN
+     * @ORM\ManyToOne(targetEntity="BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN",cascade={"persist","remove"})
+     */
+    private $profileResourceCDN;
+    
+    /**
+     * Recursos en CDN de la imagen de portada
+     * 
+     * @var \BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN
+     * @ORM\ManyToOne(targetEntity="BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN",cascade={"persist","remove"})
+     */
+    private $coverResourceCDN;
 
     public function __construct() {
         parent::__construct();
@@ -1385,6 +1401,43 @@ class User extends BaseUser
     public function getReferredBy()
     {
         return $this->referredBy;
+    }
+
+    
+    
+    /** 
+     * @param \BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN $resourceCDN
+     * @return \BtoB\SocialNetwork\EntityBundle\Entity\User
+     */
+    function getProfileResourceCDN() {
+        return $this->profileResourceCDN;
+    }
+    
+    /**
+     * 
+     * @param \BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN $resourceCDN
+     * @return \BtoB\SocialNetwork\EntityBundle\Entity\User
+     */
+    function getCoverResourceCDN() {
+        return $this->coverResourceCDN;
+    }
+
+    /**
+     * @return \BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN
+     */
+    function setProfileResourceCDN(\BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN $profileResourceCDN) {
+        $this->profileResourceCDN = $profileResourceCDN;
+        
+        return $this;
+    }
+
+    /**
+     * @return \BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN
+     */
+    function setCoverResourceCDN(\BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN $coverResourceCDN) {
+        $this->coverResourceCDN = $coverResourceCDN;
+        
+        return $this;
     }
     
     /**
