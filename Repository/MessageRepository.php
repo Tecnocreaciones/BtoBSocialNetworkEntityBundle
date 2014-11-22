@@ -52,6 +52,7 @@ class MessageRepository extends EntityRepository
             //->addSelect('s')
                 
             ->innerJoin('m.user', 'u')
+            ->leftJoin('m.resourcesCDN', 'm_r')
             //->innerJoin('u.leaders', 'l', \Doctrine\ORM\Query\Expr\Join::WITH,'(l.leader = :user OR l.subscriber = :user)','')
             //->innerJoin('u.subscribers', 's', \Doctrine\ORM\Query\Expr\Join::WITH,'(s.leader = :user OR s.subscriber = :user)','')
            ->andWhere($qb->expr()->in('m.user', $leaders))
