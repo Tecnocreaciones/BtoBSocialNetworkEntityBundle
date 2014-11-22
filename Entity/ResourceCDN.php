@@ -59,10 +59,13 @@ class ResourceCDN extends Base
     /**
      * @var \BtoB\SocialNetwork\EntityBundle\Entity\Message
      *
-     * @ORM\ManyToOne(targetEntity="BtoB\SocialNetwork\EntityBundle\Entity\Message",inversedBy="resourcesCDN")
-     * @ORM\JoinColumn(referencedColumnName="id",nullable=false)
+     * @ORM\ManyToMany(targetEntity="BtoB\SocialNetwork\EntityBundle\Entity\Message",mappedBy="resourcesCDN")
      */
-    private $message;
+    private $messages;
+    
+    public function __construct() {
+        $this->messages = new \Doctrine\Common\Collections\ArrayCollection();
+    }
     
     /**
      * Get id
@@ -121,29 +124,6 @@ class ResourceCDN extends Base
     }
 
     /**
-     * Set message
-     *
-     * @param \BtoB\SocialNetwork\EntityBundle\Entity\Message $message
-     * @return ResourceCDN
-     */
-    public function setMessage(\BtoB\SocialNetwork\EntityBundle\Entity\Message $message)
-    {
-        $this->message = $message;
-
-        return $this;
-    }
-
-    /**
-     * Get message
-     *
-     * @return \BtoB\SocialNetwork\EntityBundle\Entity\Message 
-     */
-    public function getMessage()
-    {
-        return $this->message;
-    }
-
-    /**
      * Set name
      *
      * @param string $name
@@ -164,5 +144,38 @@ class ResourceCDN extends Base
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Add messages
+     *
+     * @param \BtoB\SocialNetwork\EntityBundle\Entity\Message $messages
+     * @return ResourceCDN
+     */
+    public function addMessage(\BtoB\SocialNetwork\EntityBundle\Entity\Message $messages)
+    {
+        $this->messages->add($messages);
+
+        return $this;
+    }
+
+    /**
+     * Remove messages
+     *
+     * @param \BtoB\SocialNetwork\EntityBundle\Entity\Message $messages
+     */
+    public function removeMessage(\BtoB\SocialNetwork\EntityBundle\Entity\Message $messages)
+    {
+        $this->messages->removeElement($messages);
+    }
+
+    /**
+     * Get messages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMessages()
+    {
+        return $this->messages;
     }
 }

@@ -158,7 +158,7 @@ class Message
      * Recursos en CDN
      * 
      * @var \BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN
-     * @ORM\OneToMany(targetEntity="BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN",mappedBy="message",cascade={"remove"})
+     * @ORM\ManyToMany(targetEntity="BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN",inversedBy="messages",cascade={"remove"})
      */
     private $resourcesCDN;
     /**
@@ -523,7 +523,7 @@ class Message
      */
     public function addResourcesCDN(\BtoB\SocialNetwork\EntityBundle\Entity\ResourceCDN $resourcesCDN)
     {
-        $this->resourcesCDN[] = $resourcesCDN;
+        $this->resourcesCDN->add($resourcesCDN);
 
         return $this;
     }
