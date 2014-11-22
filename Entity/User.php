@@ -325,8 +325,10 @@ class User extends BaseUser
     
     /**
      * Usuario que te refirio a BtoB
+     * 
      * @var User
      * @ORM\ManyToOne(targetEntity="BtoB\SocialNetwork\EntityBundle\Entity\User")
+     * @ORM\JoinColumn(name="referredBy_id",referencedColumnName="idu")
      */
     protected $referredBy;
     
