@@ -20,7 +20,7 @@ use BtoB\SocialNetwork\EntityBundle\Model\ResourceCDN as Base;
  * @author Carlos Mendoza <inhack20@tecnocreaciones.com>
  * 
  * @ORM\Table(name="resourceCdn")
- * @ORM\Entity(repositoryClass="BtoB\SocialNetwork\EntityBundle\Repository\ResourceCDN")
+ * @ORM\Entity(repositoryClass="BtoB\SocialNetwork\EntityBundle\Repository\ResourceCDNRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class ResourceCDN extends Base
